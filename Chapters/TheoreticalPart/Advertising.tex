@@ -84,6 +84,27 @@
     
     \subsubsection{Srovnání reklamních médií}
     Průzkum inzertních výkonů SPIR 2019 odhaluje, že i přes velké možnosti Internetu, je v České republice stále nejvíce investováno do reklamy televizní.
-    Celkové srovnání medií se nachází na “obrázku 1”.
+    Celkové srovnání medií se nachází na obrázku \ref{fig:spir-mediatypes}.
+
+
+    \begin{figure}[h]
+        \centering
+        % \includegraphics[width=0.4\textwidth]{Figures/CoffeeAndComputer.jpg}
+        % \includesvg{Figures/pie-chart}
+        \begin{tikzpicture}
+            \pie[
+                text=pin,
+                after number=~mld.,
+                sum=auto,
+            ]{39.5/Internet,
+            62.2/TV,
+            4.4/OOH,
+            17.2/Tisk,
+            7.3/Rozhlas}
+        \end{tikzpicture}
+
+        \caption{Podíl jednotlivých mediatypů v roce 2020 \cite{spir:mediatypes}}
+        \label{fig:spir-mediatypes}
+    \end{figure}
 
     Možnosti online reklamy jsou velice rozsáhlé a stále se vyvíjejí. Následující kapitola se více zaměřuje na možnosti Internetové inzerce.

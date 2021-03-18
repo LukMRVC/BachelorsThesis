@@ -4,6 +4,48 @@ reklama ve vyhledávání a emailová reklama. Nejčastějšími poskytovateli s
 Obrovské množství denních uživatelů z nich udělali perfektní platformy pro nabízení inzercí.
 Obrázky 2 a 3 zobrazují srovnání návštěvnosti 5 největších poskytovatelů online reklamy v České republice.
 
+\begin{figure}[h]
+    \centering
+    \caption{Graf reálných uživatelů provozovatelů reklamních sítí v ČR \cite{spir:mediatypes}}
+    \label{fig:spir-publishers}
+    \begin{tikzpicture}
+        \begin{axis}[
+            symbolic x coords={Czech News Center / Active, ImpressionMedia, Mediální skupina Mafra, Seznam.cz, TISCALI MEDIA / ARBOmedia },
+            x tick label style={rotate=45, anchor=north east, inner sep=0mm},
+            xtick=data,
+            ylabel=Počet uživatelů (v mil.),
+          ]
+            \addplot[ybar, fill, blue] coordinates {
+                (Czech News Center / Active, 6938568)
+                (ImpressionMedia,            7100320)
+                (Mediální skupina Mafra,     7266377)
+                (Seznam.cz,                  8480248)
+                (TISCALI MEDIA / ARBOmedia,  6836590)
+            };
+        \end{axis}
+    \end{tikzpicture}
+    
+\end{figure}
+
+\begin{table}[hb]
+    \centering
+    \caption[Srovnání provozovatelů reklamních sítí]{Srovnání provozovatelů reklamních sítí \cite{spir:mediatypes}}
+	\label{tab:spir-publishers}
+    \begin{tabular}{l|r|r|r|r}
+        \toprule
+            Název & Reální uživatelé & Zobrazení stránky & Návštěvy & Čas \\
+        \midrule
+            Seznam.cz & 8 480 248 & 4 541 397 144  & 1 104 367 612 & 13782r 58d  \\
+            Mediální skupina Mafra & 7 266 377 & 741 803 207  & 128 011 647  & 1156r 302d \\
+            ImpressionMedia & 7 100 320  & 258 039 333 & 91 386 082 & 370r 7d  \\
+            Czech News Center / Active & 6 938 568 & 508 776 721 & 110 070 333  & 549r 310d  \\
+            TISCALI MEDIA / ARBOmedia & 6 836 590 & 120 326 836  & 44 648 445 & 204r 83d  \\
+        \midrule
+        
+    \end{tabular}
+\end{table}
+
+
 Co se týče emailové reklamy, považuje se efektivní formu přímého marketingu, která je navíc zdarma.
 Firmy mohou komunikovat se svými zákazníky jakožto stálými odběrateli nebo rozesílat hromadné emaily. Legislativně je však nevyžádaná elektronická pošta ošetřena.
 Organizace tedy při posílaní emailů si musí být jisté, že je jejich sdělení oprávněné a nebude označeno jako spam.
