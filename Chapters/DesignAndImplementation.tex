@@ -25,6 +25,15 @@ Prostředí editoru by mělo být reaktivní a reagovat na změny provedené už
     Jelikož tato práce neřeší vzájemný přístup více uživatelů, synchronizace a ukládání pracovního plátna jako takového,
     nebude zde potřeba implementovat serverovou stranu aplikace. Pro funkčnost nástroje lze využít prohlížeč a počítač uživatele.
 
+    % \includepdf{use-case-diagram.pdf}
+    %\includesvg{}
+    \begin{figure}
+        \centering
+        \label{fig:use-case-diagram}
+        \includegraphics[width=0.85\textwidth]{Figures/use-case.png}
+        \caption[Use case diagram]{Diagram případu užití návrhu online nástroje}
+    \end{figure}
+
     \section{Volba technologíí}
     Moderní vývoj frontendu se ujal směrem javascriptových frameworků a knihoven. Nejvíce používanými frameworky/knihovnami se stal VueJS, Angular a React.
     Porovnávat tyto technologie by však bylo zbytečné zde rozepisovat, jelikož to není tématem této práce.
@@ -80,6 +89,13 @@ Prostředí editoru by mělo být reaktivní a reagovat na změny provedené už
     byla by komunikace striktně mezi komponentami složitá. Proto bude využita sdílená služba.
     Ta má za úkol zastiňovat API vybrané knihovny a vykreslování na plátno. Díky tomu budou mít všechny potřebné komponenty přístup ke službě a
     přímo ovlivňovat vykreslené objekty.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.85\textwidth]{Figures/component-diagram.png}
+        \label{fig:component-diagram}
+        \caption[Diagram komponent editoru]{Diagram komponent online nástroje}
+    \end{figure}
 
         \subsection{Zobrazení více bannerů najednou}
         Aby uživatel dokázal pracovat rychle a efektivně bude mu umožněno upravovat více bannerů najednou. K docílení tohoto požadavku je možno použít
@@ -164,6 +180,13 @@ Prostředí editoru by mělo být reaktivní a reagovat na změny provedené už
     které se budou moct přehazovat a přejmenovávat. Vedle seznamu také budou dostupné některé základní nástroje pro kreslení tvarů.
     Na pravém sloupci budou zobrazeny všechny tvary a objekty, které se momentálně nachází na bannerech, po položkách.
     Jednotlivé položky půjdou rozkliknout a zobrazí se vlastnosti objektu, jenž půjdou změnit.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.8\textwidth]{Figures/wireframe.png}
+        \label{fig:ui-wireframe}
+        \caption[Wireframe UI]{Návrh uživatelského rozhraní ve formě wireframu}
+    \end{figure}
 
         \subsection{Text}
         Výběr fontů bude implementován způsobem vyhledávání s automatickým zobrazením nebližších shod.

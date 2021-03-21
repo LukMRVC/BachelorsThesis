@@ -2,7 +2,7 @@
 Moderní digitální doba nabízí mnoho způsobů, kterými lze komerční sdělení šířit. Jako jedny z hlavních forem se stává grafická (display) reklama,
 reklama ve vyhledávání a emailová reklama. Nejčastějšími poskytovateli se stali sociální sítě a vyhledávače.
 Obrovské množství denních uživatelů z nich udělali perfektní platformy pro nabízení inzercí.
-Obrázky 2 a 3 zobrazují srovnání návštěvnosti 5 největších poskytovatelů online reklamy v České republice.
+Obrázek \ref{fig:spir-publishers} a tabulka \ref{tab:spir-publishers} zobrazují srovnání návštěvnosti 5 největších poskytovatelů online reklamy v České republice.
 
 \begin{figure}[h]
     \centering
@@ -57,6 +57,25 @@ Grafická reklama (nejčastěji bannery a videa) je silným nástrojem pro rozš
 zároveň může lákat na produkt. Obsahuje reklamní sdělení, logo firmy a výzvu k akci (CTA) -- nejčastěji ve formě tlačítka.
 Obr. Ukazuje srovnání investic do grafické a vyhledávané reklamy.
 
+\begin{figure}[h]
+    \centering
+    \caption[Výkon reklam v roce 2020]{Výkon jednotlivých forem internetové reklamy v roce 2020 \cite{spir:mediatypes}}
+    \label{fig:spir-ad-performance}
+    \begin{tikzpicture}
+        \begin{axis}[
+            symbolic x coords={Grafická reklama, Reklama ve vyhledávání},
+            xtick=data,
+            ylabel=Milióny Kč
+          ]
+            \addplot[ybar, fill, blue] coordinates {
+                (Grafická reklama,           26998)
+                (Reklama ve vyhledávání,     11274)
+            };
+        \end{axis}
+    \end{tikzpicture}
+    
+\end{figure}
+
     \subsection{Metriky internetových reklam}\label{ssec:online-ad-metrics}
     Jak tato práce již zmiňovala, výhodou online inzercí je jednoduchý monitoring. Na rozdíl od ostatních médií si firmy mohou být více jisté,
     že jejich reklamu cílené osoby opravdu vnímají. Hlavní metrikou reklamy vždy bývá zvýšení prodeje.
@@ -96,6 +115,13 @@ Obr. Ukazuje srovnání investic do grafické a vyhledávané reklamy.
 
     Druhou možností je \enquote{kupovat} si cílové publikum své reklamy, a to za pomocí technologie \emph{RTB}.
     Na začátku si inzerent při tvorbě reklamní kampaně vybere svou cílovou skupinu. Tu specifikuje pomocí různých demografických kritérií apod.
-    Ve zjednodušené podobě je průběh RTB znázorněn na obrázku č. XXX
+    Ve zjednodušené podobě je průběh RTB znázorněn na obrázku \ref{fig:rtb}.
+
+    \begin{figure}[h]
+        \centering
+        \caption[Fungování RTB]{Zjednodušený způsob fungování RTB}
+        \includegraphics[width=0.7\textwidth]{Figures/rtb.png}
+        \label{fig:rtb}
+    \end{figure}
 
 \endinput
