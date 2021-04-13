@@ -6,7 +6,8 @@ Dokáží efektivně pracovat s grafikou a používat různé efekty. Většinu 
 Online nástroj, který je součástí této práce by tedy měl mít podobnou funkcionalitu, na kterou jsou obvyklí uživatelé zvyklí.
 Těmi mohou být jak zkušení grafičtí designéři, tak i lidé bez hlubší znalosti tvorby bannerů.
 Rozsah této práce nepokrývá vytváření grafiky přímo v editoru, a proto bude nástroj koncipován jako prostředek pro využití již vytvořené grafiky.
-Prostředí editoru by mělo být reaktivní a reagovat na změny provedené uživatelem.
+Prostředí editoru by mělo být reaktivní a reagovat na změny provedené uživatelem. Tato kapitola se zabývá návrhem a samotnou implementací
+nástroje, který je součástí práce.
 
     \section{Návrh funkcionalit}
     Co se týče práce s textem, měl by být dostupný výběr více fontů, změna barvy, velikosti a podobných možností.
@@ -59,7 +60,7 @@ Prostředí editoru by mělo být reaktivní a reagovat na změny provedené už
             Výhodou této knihovny oproti ostatním je, že má zabudovaný parser pro konverzi do formátu SVG nebo JSON a zpět z těchto na canvas.  
             
             \subsubsection{Konva.js}
-            KonvaJS je knihovna pro práci ve 2D jak pro desktopové zařízení, tak pro mobilní. Nabízí práci s textem (včetně podpory různých fontů),
+            Konva.js je knihovna pro práci ve 2D jak pro desktopové zařízení, tak pro mobilní. Nabízí práci s textem (včetně podpory různých fontů),
             animace, geometrickými objekty, obrázky (rastrové i vektorové) a videa, filtry atd. Výsledek práce se dá exportovat jako serializovaný
             JSON nebo obrázek ve formátu PNG nebo JPEG, u kterých umožňuje zvýšit poměr pixelů pro lepší kvalitu.
             Při exportu do formátu JPEG dovoluje zvolit výslednou kvalitu. Mezi výhody spadá podpora zařízení s vysokou hustotou pixelů, a gest na mobilních zařízeních.
@@ -71,7 +72,7 @@ Prostředí editoru by mělo být reaktivní a reagovat na změny provedené už
             Podporuje mobilní zařízení a do jisté míry vykreslování pomocí technologie WebGL.
 
             Jelikož je vysoká pravděpodobnost, že by nástroj používali grafici, je potřeba zajistit dobrou podporu pro retina displeje.
-            Proto pro implementaci byl zvolena KonvaJS.
+            Proto pro implementaci byl zvolena Konva.js.
 
     \section{Návrh implementace}
     Základním stavebním blokem aplikací v Angularu jsou moduly. Ty logicky oddělují různé části aplikace od sebe a tím umožňuje lepší oddělení
@@ -132,9 +133,9 @@ Prostředí editoru by mělo být reaktivní a reagovat na změny provedené už
         Cílem je práci usnadnit co nejvíce a umožnit nahrání jak ze vzdálených zdrojů, tak i z lokální pracovní stanice.
         Obvykle by se obrázky a fotografie nahráli na server, odkud by již byly dostupné uživateli kdykoli by je potřeboval.
         Tohle jsou však další rozšířené funkce, které tato práce svým rozsahem neřeší. Proto bude nahrávání řešeno pomocí kódování base64,
-        které umí binární data převést na ASCII znaky. Tento přístup je nutné použít i v případě nahrání ze vzdálených zdrojů Internetu.
-        Dle specifikace HTML, načítání obrázků z jiné domény do canvasu způsobí tzv. zkažený (tainted) canvas, který není možné exportovat.
-        Další způsob je povolení \emph{CORS} ze strany zdrojového serveru. Díky tomu by se obrázky mohli načíst bez nutnosti kódování.
+        které umí binární data převést na ASCII znaky. Nahrání ze vzdálených zdrojů v Internetu bude taktéž umožněno. Podmínkou načítání z ostatních webových stránek
+        je povolení \emph{CORS} ze strany vzdáleného serveru. Jinak dle specifikace HTML, načítání obrázků z jiné domény do canvasu 
+        způsobí tzv. zkažený (tainted) canvas, který není možné exportovat.
 
         \subsection{Exportování výsledků}
         Stejně jako nativní HTML canvas, Konva.js poskytuje možnost exportování ve formátech JPG a PNG.
@@ -209,6 +210,49 @@ Prostředí editoru by mělo být reaktivní a reagovat na změny provedené už
         Druhý krok bude výběr datasetů k exportu, ze kterých půjdou vybrat třeba jen určité bannery. Třetím a zároveň posledním krokem je
         samotné stažení bannerů v archivu. 
 
+\section{Webová aplikace}
+    Vytvořený nástroj je ve formě webové aplikace. Ke zformování byly použité výše popsané technologie Angular a Konva.js. 
+    Jedná se o tzv. \emph{single page application (SPA)}, kde veškerý obsah a funkcionalita se nachází pouze na straně klienta a neexistuje žádný
+    serverový backend. Stavový management je vyřešen pomocí sdílené služby, která uchovává potřebná data k vykreslování objektů na plátno.
+    Stavy jsou při každém potřebném překreslení aktualizovány. Díky tomuto lze celý projekt jednoduše uložit do souboru a kdykoli znovu načíst.
+    
+    \subsection{Vykreslování plátna}
+        O vykreslování se stará několik Angularových služeb dohromady. Důvod je ten, že k určitým objektům je nutno změnit způsob jakým jsou vytvořeny a vykresleny.
+        Informace o tom co se má vykreslit jsou jim předávány přes komponenty, které mají služby v sobě injektované. Tyto komponenty reagují
+        na jakékoli změny, které uživatel provede v uživatelském rozhraní a jsou ihned reflektovány na plátno.
+
+    \subsection{Práce s aplikací}
+        Uživatelské rozhraní, vyobrazené na obrázku \ref{fig:ad-editor-ui}, se podobá wireframu a je vytvořeno tak, aby bylo pro uživatelé co nejpřívětivější a líbivé.
+        Ukázku práce s aplikací a další ukázky UI se nachází v příloze této práce.
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=1\textwidth]{Figures/ad-editor.png}
+            \caption[UI webové aplikace]{Výsledné uživatelské rozhraní webové aplikace}
+            \label{fig:ad-editor-ui}
+        \end{figure}
+        Při spuštění aplikace se uživateli zobrazí dialogové okno s výběrem velikostí bannerů. Po vybrání se náhledy bannerů vykreslí na plátno.
+        První co uživatel upravuje je šablona, do které lze ihned umístit 4 základní prvky -- pozadí, logo, titulek a CTA.
+        Při práci s prvky (jako je např. škálování a přetahování) na jednom banneru
+        se tyto akce na daném prvku provádějí i na všech ostatní bannerech. Toto chování usnadňuje a urychluje celkovou tvorbu.
+        Pro drobné úpravy si může uživatel tuto funkci vypnout.
+        Dále je možno přidat na bannery více textů, obrázků, kruhů nebo čtverců. Dvojitým klikem na čtverec se z něj stane polygon, který lze libovolně upravovat
+        přidáváním nebo odebíráním bodů. Pokud je potřeba, některé objekty zobrazovat pouze na některých bannerech, je toto nastavení taktéž umožněno.
+        Nástroj pro všechny objekty poskytuje obvyklé možnosti úpravy.        
+
+        \subsubsection{Nahrávání datasetů}
+            Všechny vykreslované objekty musí být unikátně pojmenované.
+            Nahrávaný dataset musí být ve formátu CSV. Jako hlavička CSV souboru musí být uvedeny názvy objektů, které si uživatel přeje změnit, v tzv. \emph{slugu} (tzn. vše malými písmeny a mezery
+            nahrazené pomlčkou). Měněné objekty, mohou být pouze texty nebo zdroje obrázků. Obrázky aplikace umožňuje načítat i ze vzdálených zdrojů skrz 
+            URL adresu, ale vzdálený server musí povolit \emph{CORS}. Po úspěšném nahrání se do aplikace tyto datasety přidají a lze mezi nimi přepínat a každý
+            individuálně dále upravovat.
+
+        \subsubsection{Export bannerů}
+            Jakmile je uživatel s výsledkem spokojen, může bannery exportovat. Po zvolení exportu se zobrazí dialogové okno s nastavením exportu.
+            Uživatel si může vybrat datasety k exportování, zda chce exportovat i šablonu, výstupní formát a případně poměr pixelů.
+            Podporované výstupní formáty jsou JPEG a PNG. Pokud je zvolen JPEG, lze změnit i výslednou kvalitu.
+            Dialog také zobrazuje největší odhadovanou velikost souboru, aby si uživatel nastavil vyhovující formát, případně kvalitu.
+            Následně jsou vybrané datasety exportovány a staženy v ZIP archivu.
+    
 
 
 
