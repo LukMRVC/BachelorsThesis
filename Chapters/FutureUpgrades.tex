@@ -1,0 +1,32 @@
+\chapter{Možná vylepšení}
+\label{chap:future}
+Z podstaty řešeného problému toutu prací lze najít spoustu dalších možných vylepšení. V dnešní době, kdy je drtivá většina webových
+aplikací je nabízená modelem \emph{Software as a Service (SaaS)} by se i řešení této práce dalo nadále upravovat podobným směrem.
+V této kapitole autor práce popisuje několik možností, jak by se výsledný software dal dále zdokonalit.
+
+\section{Editor}
+Samotný editor již nabízí uživateli řadu potřebných funkcí. Budoucí iterace by mohli práci ještě usnadit a zlepšit. Jeda z prvních schopností
+editoru, kterými by mohl v budoucnu disponovat je seskupování objektů. Další užitečná funkce je přichytávání taženého prvku na základě 
+ostatních tvarů, které se na banneru nacházejí. Při práci se složitějšími designy, by se právě tyto funkce uživateli hodili.
+Následně už složitějším vylepšením by bylo přidání časové osy a animací. Samotná použivá knihovna pro práci s canvasem, Konva.js, umožňuje základní
+prvky animací jako je pohyb, škálování, rotace, změna barev apod. Přidání tohoto by také znamenalo možnost exportu do jiného formátu umožňující 
+než pouze JPEG a PNG. Nabízí se možnost exportu do formátu GIF nebo HTML banneru.
+
+\section{Backend}
+Momentální aplikace je celá řešená pouze na straně prohlížeče uživatele a neposkytuje žadný backend. Přidáním této části k aplikaci se otevírají
+další možnosti využití. Ukládání uživatelských projektů na server, ukládání šablon, nahrávání fotek a obrázků, případně i vytváření celých reklamních 
+kampaní. Autentizace a autorizace uživatelů. Projekty by se mohly stát komplexnější a mohlo by na nich podílet vícero uživatelů najednou.
+
+\subsection{Sdílené projekty}
+Velice využívanou funkcí moderních nástrojů pro tvorbů grafiky se stala víceuživatelská práce a sdílení projektů v reálném čase. Na jednom projektu
+může pracovat více uživatelů najednou a všichni vidí prováděné změny v reálném čase, nezávisle na tom jak daleko se uživatelé fyzicky od sebe 
+nacházejí. Toto je umožněno nejčasteji díky použití \emph{WebSocketů}. Ty udržují neústálé obousměrné spojení mezi klientem a serverem. Pokud tedy server
+ví, že stejný projekt má otevřeno více uživatelů, umí prováděné změny posílat přes všechna spojení.
+
+\subsection{Napojení na reklamní sítě}
+Správa reklamních kampaní může být poněkud složitá, pokud jsou různé kampaně rozložené na více reklamích sítí. Ty však většinou poskytují možnost,
+jak kampaně exportovat, importovat nebo dokonce celé řídit přes \emph{API}. Stejně jako Google i Facebook a český Sklik nabízejí možnost přístupu
+přes programové rozhraní. I toto by mohl nástroj v budoucnu sjednocovat a z jednoho místa řídit více kampaní napříč inzertními systémy, včetně
+automatizovaného nahrávání vlastních reklamních materiálů.
+
+\endinput
