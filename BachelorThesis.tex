@@ -25,7 +25,7 @@
 % Pokud nechceme nikomu dekovat makro zapoznamkujeme.
 \Acknowledgement{Rád bych na tomto místě poděkoval vedoucímu bakalářské práce, Ing.~Radoslavovi~Fasugovi,~Ph.D., za věnovaný čas, vstřícnost a ochotu ke konzultacím při vytváření této práce. Dále bych chtěl také poděkovat své přítelkyni a rodině za neustálou podporu.}
 
-\CzechAbstract{Tato bakalářská práce je cílená na problematiku automatizovaného generování reklamních bannerů. V první části se zaměřuje na to co to vlastně reklama je, jak funguje a nejčastější způsoby toho, jak využít různé formy reklamy k dosažení svých cílů. Dále popisuje tvorbu bannerů a podmínky pro nasazení do různých reklamních sítí. Analyzuje a porovnává existující nástroje k tvorbě reklamních materiálů a jejich možnosti automatizace tvorby. Následně pojednává o tom, jak vytvořit nástroj, který by automatizaci tvorby bannerů umožňoval. Popisuje důležité funkce úprav nezbytné k efektivnímu vytváření reklamních materiálů. Výsledná aplikace je jednostránková webová aplikace, sestavená za pomoci frameworku Angular a knihovny Konva.js.}
+\CzechAbstract{Tato bakalářská práce je cílená na problematiku automatizovaného generování reklamních bannerů. V první části se zaměřuje na to, co to vlastně reklama je, jak funguje a nejčastější způsoby toho, jak využít různé formy reklamy k dosažení svých cílů. Dále popisuje tvorbu bannerů a podmínky pro nasazení do různých reklamních sítí. Analyzuje a porovnává existující nástroje k tvorbě reklamních materiálů a jejich možnosti automatizace tvorby. Následně pojednává o tom, jak vytvořit nástroj, který by automatizaci tvorby bannerů umožňoval. Popisuje důležité funkce úprav nezbytné k efektivnímu vytváření reklamních materiálů. Výsledná aplikace je jednostránková webová aplikace, sestavená za pomoci frameworku Angular a knihovny Konva.js.}
 
 \CzechKeywords{Reklama; Banner; Online grafika; Angular; Konva.js; SPA}
 
@@ -62,8 +62,90 @@
 % Seznam literatury
 \printbibliography[title={Literatura}, heading=bibintoc]
 
+\appendix
+\chapter{Návod na instalaci}\label{chap:appendix-1}
+Poslední verzi editoru již připravená k vyzkoušení lze najít online na adrese \href{https://moraveclukas.cz}{moraveclukas.cz}.
+
+Pro instalaci ze zdrojových kódů na operačním systému založeném na \emph{Linuxu} je potřeba mít nainstalované programy 
+\emph{Git (verze 2.31 a vyšší) a Node.js (verze 15) společně s NPM (verze 7)}.
+Poté stačí provést následující kroky:
+\begin{enumerate}
+    \item \texttt{git clone \href{https://github.com/LukMRVC/ad-editor.git}{https://github.com/LukMRVC/ad-editor.git}},
+    \item \texttt{cd ad-editor},
+    \item \texttt{npm install}.
+\end{enumerate}
+Pro spuštění vývojového serveru je potřeba napsat příkaz \texttt{npm run start}.
+Pro vytvoření plné verze softwaru stačí napsat příkaz \texttt{npm run build\_prod}. Výsledný build se nachází ve složce \emph{dist}, kde stačí
+otevřit soubor \emph{index.html} v jakémkoli webovém prohlížeči.
+
 % Priloha vlozena primo do hlavniho LaTeX souboru. Ne vsechny prilohy je nutne mit ve zvlastnich souborech.
 % \chapter{Dlouhý zdrojový kód}
 % \lstinputlisting[label=src:CppExternal,caption={Dlouhý zdrojový kód v jazyce C++ načtený s externího souboru}]{SourceCodes/ArraySortingAlgorithms.cpp}
+\chapter{Prostředí editoru}\label{chap:appendix-1}
+
+\begin{figure}[h]
+    \includegraphics[width=1.0\textwidth]{Figures/editor/ad-editor.png}
+    \caption{Prostředí editoru}
+    \label{fig:editor:editor}
+\end{figure}
+
+
+\begin{figure}[h]
+    \includegraphics[width=1.0\textwidth]{Figures/editor/bannery-dialog.png}
+    \caption{Dialogové okno pro výběr bannerů}
+    \label{fig:editor:banner-dialog}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \begin{minipage}{.45\linewidth}
+        \centering
+        \includegraphics[width=1\textwidth]{Figures/editor/horni-menu.png}
+        \caption{Horní menu s možnostni}
+        \label{fig:editor:menu}
+    \end{minipage}
+    \begin{minipage}{.45\linewidth}
+        \centering
+        \includegraphics[width=1\textwidth]{Figures/editor/pridani-tvaru.png}
+        \caption{Dialog při přidávání tvaru}
+        \label{fig:editor:shape-dialog}
+    \end{minipage}
+\end{figure}
+
+
+\begin{figure}[h]
+    \includegraphics[width=1.0\textwidth]{Figures/editor/volby-zobrazeni.png}
+    \caption{Volby zobrazení na různých bannerech}
+    \label{fig:editor:options}
+\end{figure}
+
+
+\begin{figure}[h]
+    \includegraphics[width=1.0\textwidth]{Figures/editor/upravy-pozadi.png}
+    \caption{Možné úpravy pozadí}
+    \label{fig:editor:backgrounds}
+\end{figure}
+
+
+
+\begin{figure}[h]
+    \includegraphics[width=1.0\textwidth]{Figures/editor/obrazkove-filtry.png}
+    \caption{Možné obrázkové filtry}
+    \label{fig:editor:filters}
+\end{figure}
+
+
+\begin{figure}[h]
+    \includegraphics[width=1.0\textwidth]{Figures/editor/uprava-textu.png}
+    \caption{Možné úpravy textu}
+    \label{fig:editor:text-edit}
+\end{figure}
+
+
+\begin{figure}[h]
+    \includegraphics[width=1.0\textwidth]{Figures/editor/export-dialog.png}
+    \caption{Dialogové okno pro export výsledných bannerů}
+    \label{fig:editor:exporting}
+\end{figure}
 
 \end{document}
