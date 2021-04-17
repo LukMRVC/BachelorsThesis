@@ -1,4 +1,3 @@
-% Nejprve uvedeme tridu dokumentu s volbami
 \documentclass[czech,bachelor]{diploma}
 % Dalsi doplnujici baliky maker
 \usepackage[autostyle=true,czech=quotes]{csquotes} % korektni sazba uvozovek, podpora pro balik biblatex
@@ -22,7 +21,7 @@
 
 \SubmissionYear{2021}
 
-% Pokud nechceme nikomu dekovat makro zapoznamkujeme.
+
 \Acknowledgement{Rád bych na tomto místě poděkoval vedoucímu bakalářské práce, Ing.~Radoslavovi~Fasugovi,~Ph.D., za věnovaný čas, vstřícnost a ochotu ke konzultacím při vytváření této práce. Dále bych chtěl také poděkovat své přítelkyni a rodině za neustálou podporu.}
 
 \CzechAbstract{Tato bakalářská práce je cílená na problematiku automatizovaného generování reklamních bannerů. V první části se zaměřuje na to, co to vlastně reklama je, jak funguje a nejčastější způsoby toho, jak využít různé formy reklamy k dosažení svých cílů. Dále popisuje tvorbu bannerů a podmínky pro nasazení do různých reklamních sítí. Analyzuje a porovnává existující nástroje k tvorbě reklamních materiálů a jejich možnosti automatizace tvorby. Následně pojednává o tom, jak vytvořit nástroj, který by automatizaci tvorby bannerů umožňoval. Popisuje důležité funkce úprav nezbytné k efektivnímu vytváření reklamních materiálů. Výsledná aplikace je jednostránková webová aplikace, sestavená za pomoci frameworku Angular a knihovny Konva.js.}
@@ -33,11 +32,83 @@
 
 \EnglishKeywords{Advertisement; Banner; Online graphics; Angular; Konva.js; SPA}
 
-% \AddAcronym{DVD}{Digital Versatile Disc}
-% \AddAcronym{TNT}{Trinitrotoluen}
-% \AddAcronym{UML}{Unified Modeling Language}
-% \AddAcronym{HTML}{Hyper Text Markup Language}
-% \AddAcronym{TUG}{\TeX{} Users Group}
+\iffalse
+Zde si můžu psát komentáře, jak bych jenom chtěl
+Přesně tak, jak je povinné pro zápočet v ELP. :)
+
+Jelikož nikde v dokumentu nemám zdrojové kódy ani sazbu nějakých rovnic, tady je ukázka, tak bych je použil:
+
+Pro krátkou rovnici v textu:
+
+$ a^2 + b^2 = c^2 $ 
+
+Nebo pro větší očíslovanou rovnici:
+
+\begin{equation}
+    \int_{0}^{\pi} \frac{\sin x}{5} dx
+\end{equation}
+
+\begin{equation}
+    \sum_{n=1}^{\infty} (n + 1)^2
+\end{equation}
+
+\begin{equation}
+    \lim_{x\to\infty} \frac{100}{x}
+\end{equation}
+
+A takto zdrojový kód, pokud by nebyl vložen ze souboru:
+
+\begin{lstlisting}
+    if __name__ == '__main__':
+
+        with open('my_super_file.txt', 'r') as supa_file:
+            for line in supa_file:
+                stripped_line = line.strip()
+
+                print(stripped_line)
+
+        print('My work here is done')
+\end{lstlisting}
+
+Ale nejlepší možností by bylo vložit zdrojový kód ze souboru, kdy by kód byl s labelem a popiskem
+
+\lstinputlisting[label=src:my-code,caption={Vypsání řádků ze souboru v jazyce Python},language=Python]{SourceCodes/ReadFileLines.py}
+
+
+\fi
+
+\AddAcronym{4C}{Customer value, cost, communication, convenience}
+\AddAcronym{4P}{Product, price, place, promotion}
+\AddAcronym{API}{Application programming interface}
+\AddAcronym{BCR}{Bounce rate}
+\AddAcronym{CORS}{Cross-origin resource sharing}
+\AddAcronym{CSS}{Cascading style sheets}
+\AddAcronym{CSV}{Comma separeted values}
+\AddAcronym{CTA}{Call to action}
+\AddAcronym{CTR}{Click through rate}
+\AddAcronym{CVR}{Conversion ratio}
+\AddAcronym{DI}{Dependency injection}
+\AddAcronym{GIF}{Graphics interchange format}
+\AddAcronym{HTML}{Hypertext markup language}
+\AddAcronym{JPEG}{Joint photographic experts group}
+\AddAcronym{JS}{Javascript}
+\AddAcronym{KB}{Kilobyte}
+\AddAcronym{LED}{Light emitting diode}
+\AddAcronym{MB}{Megabyte}
+\AddAcronym{NoSQL}{Not only SQL}
+\AddAcronym{PNG}{Portable network graphics}
+\AddAcronym{PPA}{Pay per action}
+\AddAcronym{PPC}{Pay per click}
+\AddAcronym{PPV}{Pay per view}
+\AddAcronym{px}{pixel}
+\AddAcronym{RGB}{Red green blue}
+\AddAcronym{ROI}{Return of investment}
+\AddAcronym{RTB}{Real time bidding}
+\AddAcronym{SaaS}{Software as a service}
+\AddAcronym{SPA}{Single page application}
+\AddAcronym{SPIR}{Sdružení pro internetový rozvoj}
+\AddAcronym{SVG}{Scalable vector graphics}
+\AddAcronym{UI}{User interface}
 
 \addbibresource{bibliography.bib}
 
@@ -61,10 +132,10 @@
 
 % Seznam literatury
 \printbibliography[title={Literatura}, heading=bibintoc]
-
+% Zde vlozime uvod
 \appendix
 \chapter{Návod na instalaci}\label{chap:appendix-1}
-Poslední verzi editoru již připravená k vyzkoušení lze najít online na adrese \href{https://moraveclukas.cz}{moraveclukas.cz}.
+Poslední verzi editoru již připravená k vyzkoušení lze najít online na adrese \href{https://moraveclukas.cz}{https://moraveclukas.cz}.
 
 Pro instalaci ze zdrojových kódů na operačním systému založeném na \emph{Linuxu} je potřeba mít nainstalované programy 
 \emph{Git (verze 2.31 a vyšší) a Node.js (verze 15) společně s NPM (verze 7)}.
@@ -81,7 +152,7 @@ otevřit soubor \emph{index.html} v jakémkoli webovém prohlížeči.
 % Priloha vlozena primo do hlavniho LaTeX souboru. Ne vsechny prilohy je nutne mit ve zvlastnich souborech.
 % \chapter{Dlouhý zdrojový kód}
 % \lstinputlisting[label=src:CppExternal,caption={Dlouhý zdrojový kód v jazyce C++ načtený s externího souboru}]{SourceCodes/ArraySortingAlgorithms.cpp}
-\chapter{Prostředí editoru}\label{chap:appendix-1}
+\chapter{Prostředí editoru}\label{chap:appendix-2}
 
 \begin{figure}[h]
     \includegraphics[width=1.0\textwidth]{Figures/editor/ad-editor.png}
